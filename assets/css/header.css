@@ -1,0 +1,180 @@
+.cabecalho__menu-hanburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block; /* permite ajuste de largura e altura */
+}
+
+.container__botao:checked~.container__rotulo>.cabeçalho__menu-hanburguer {
+    background-image: url("../images/menu-branco.svg");
+}
+
+.container__botao:checked ~.container__rotulo {
+    background-color: var(--azul-degrade);
+}
+
+.cabecalho {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+    position: relative; /* libera outras opções de posicionamento */
+    top: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+/*
+.container__imagem {
+    padding: 1.0em
+*/
+
+
+.logo__alurabook {
+    margin-left: 0.9em;
+}
+
+.lista-menu {
+    display: none;  /* retira o lista-menu e não ocupa espaço. */
+    position: absolute;
+    top: 100%; /* tirou 100% do cabeçalho e ficou pra baixo */
+    width: 60vw;
+}
+
+.container__botao:checked~.lista-menu { /* combinador CSS acento ~ */
+    display: block;
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    color: var(--azul-degrade);
+    -webkit-background-clip: text; /* assegura que color será aplicado ao texto */
+    /* -webkit-text-fill-color: transparent; */
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.container__botao {
+    display: none;
+}
+
+.container__titulo {
+    display: none;  /* nao exibe o elemento no mobile */
+}
+
+.opcoes {
+    display: none;  /* nao exibe o elemento no mobile */
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--font-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto-black);
+    }
+
+    .container__imagem-transparent {
+        display: none;
+    }
+
+    .cabecalho__menu-hanburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu { /* combinador CSS acento ~ */
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco)
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto-black);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto; 
+    }
+
+    .opcoes:hover {
+        background-color: var(--azul-degrade);
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+}
